@@ -27,12 +27,18 @@ PPoly : Pattern{
 				}
 			};
 			if(a.degrees.reject(_.isNil).isEmpty){^nil};
-			(degree:a.degrees.copy, dur:min).yield
+			(inval ++ (degree:a.degrees.copy, dur:min) ).yield
 		}
+		^inval
 	}
 }
 
 /*
+
+
+PPoly(
+	Pbind(\degree, 0), Pbind(\degree, 1, \dur, 0.5)
+).iter.nextN(20)
 
 PPoly(
 	Pmel(4), Pmel(5)
